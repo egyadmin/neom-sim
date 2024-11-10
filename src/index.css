@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  button, 
+  input, 
+  select {
+    min-height: 44px;
+    font-size: 16px !important;
+  }
+
+  /* Adjust spacing for mobile */
+  .p-4 {
+    padding: 1rem !important;
+  }
+  
+  .p-6 {
+    padding: 1.5rem !important;
+  }
+
+  /* Better card layouts on mobile */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Improve table readability on mobile */
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile menu animations */
+  .mobile-menu-enter {
+    transform: translateX(100%);
+  }
+  
+  .mobile-menu-enter-active {
+    transform: translateX(0%);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .mobile-menu-exit {
+    transform: translateX(0%);
+  }
+  
+  .mobile-menu-exit-active {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Mobile-specific card styles */
+  .mobile-card {
+    @apply bg-white rounded-xl shadow-sm p-4 space-y-3;
+  }
+
+  .mobile-card-header {
+    @apply flex justify-between items-start;
+  }
+
+  .mobile-card-content {
+    @apply grid grid-cols-2 gap-3 text-sm;
+  }
+
+  .mobile-card-footer {
+    @apply flex items-center justify-between pt-3 border-t border-gray-100;
+  }
+
+  /* Bottom navigation for mobile */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex justify-around items-center z-50;
+  }
+
+  .bottom-nav-item {
+    @apply flex flex-col items-center gap-1 text-xs text-gray-600;
+  }
+
+  .bottom-nav-item.active {
+    @apply text-primary-600;
+  }
+
+  /* Mobile modal styles */
+  .mobile-modal {
+    @apply fixed inset-0 bg-white z-50 flex flex-col;
+  }
+
+  .mobile-modal-header {
+    @apply sticky top-0 bg-white border-b border-gray-100 p-4 flex items-center justify-between;
+  }
+
+  .mobile-modal-content {
+    @apply flex-1 overflow-y-auto p-4;
+  }
+
+  .mobile-modal-footer {
+    @apply sticky bottom-0 bg-white border-t border-gray-100 p-4;
+  }
+
+  /* Mobile form improvements */
+  .mobile-form-group {
+    @apply space-y-2 mb-4;
+  }
+
+  .mobile-form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .mobile-form-input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+
+  /* Mobile-specific typography */
+  .mobile-title {
+    @apply text-lg font-semibold;
+  }
+
+  .mobile-subtitle {
+    @apply text-sm text-gray-600;
+  }
+
+  /* Mobile grid layouts */
+  .mobile-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  .mobile-grid-2 {
+    @apply grid grid-cols-2 gap-4;
+  }
+}
+
+/* Map Styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Custom marker pulse effect */
+.pulse-icon {
+  position: relative;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pulse-ring {
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  animation: pulsate 1.5s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+}
